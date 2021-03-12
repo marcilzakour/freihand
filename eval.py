@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import pip
 import argparse
 import json
+import base64
 
 def install(package):
     if hasattr(pip, 'main'):
@@ -122,7 +123,7 @@ def createHTML(outputDir, curve_list):
         plt.savefig(img_path, bbox_inches=0, dpi=300)
 
         # write image and create html embedding
-        data_uri1 = open(img_path, 'rb').read().encode('base64').replace('\n', '')
+        data_uri1 = base64.b64encode(open(img_path, 'rb').read()).decode('utf-8').replace('\n', '')
         img_tag1 = 'src="data:image/png;base64,{0}"'.format(data_uri1)
         curve_data_list.append((item.text, img_tag1))
 
