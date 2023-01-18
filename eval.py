@@ -28,12 +28,12 @@ except:
 
 
 try:
-    from utils.fh_utils import *
-    from utils.eval_util import EvalUtil
+    from .utils.fh_utils import *
+    from .utils.eval_util import EvalUtil
 
 except:
-    from fh_utils import *
-    from eval_util import EvalUtil
+    from utils.fh_utils import *
+    from utils.eval_util import EvalUtil
 
 
 def verts2pcd(verts, color=None):
